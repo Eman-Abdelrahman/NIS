@@ -12,5 +12,6 @@
 
  
 ### N.B: This approach is assuming that the order of uppercase and lowercase doesn't matter. 
-Example: Vv is the same as vV --> they both will be alphabetized to Vv
+- [ ] Example: 
+    - [ ] Vv is the same as vV --> they both will be alphabetized to Vv
      
