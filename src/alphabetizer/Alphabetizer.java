@@ -159,4 +159,5 @@ public class Alphabetizer {
 //remove key from hashmap: https://www.geeksforgeeks.org/hashmap-remove-method-in-java/
 //converting  string's characters to ther lowercase: https://www.w3schools.com/java/ref_string_tolowercase.asp
 //sort string alphabetically: https://www.geeksforgeeks.org/sort-a-string-in-java-2-different-ways/
+// To compile from the command line: https://www.learnjavaonline.org/en/Compiling_and_Running_with_Arguments
 
