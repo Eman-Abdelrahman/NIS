@@ -6,6 +6,7 @@
 package alphabetizer;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -20,45 +21,52 @@ import static org.junit.Assert.*;
  */
 public class AlphabetizerTest {
 
-    
     /**
      * Test of main method, of class Alphabetizer.
      */
     @Test
     public void testMainNullArgs() {
-        System.out.println("main: passing no arguments");
+        System.out.println("main: passing no arguments. It is captured by printing usage to the user & exiting");
         String[] args = null;
-        Alphabetizer.main(args);
-        fail("Usage: java alphabetizer.Alphabetizer <inputFile.txt> <outputFile.txt>");
-        //        Alphabetizer.main(args);
+        try {
+            Alphabetizer.main(args);
+        } catch (Exception e) {
+            fail("Null arguments not handled properly in the code");
+        }
     }
 
     @Test
     public void testMainMissingArg() {
         System.out.println("main: passing only one argument");
         String[] args = {"NIS_sample.txt"};
-        if (args.length < 2) {
-            fail("Two filenames should be passed as arguments: First is Input file name and second is output file name");
+        try {
+            Alphabetizer.main(args);
+        } catch (Exception e) {
+            fail("Missing argument is not handled properly in the code");
+
         }
-        //        Alphabetizer.main(args);
     }
 
     @Test
     public void testMainTwoArgsInvalidInputFile() {
         System.out.println("main: passing two arguments but input file doesn't exist");
-        String[] args = {"NIS_sample.txt", "alphabetizer_output.txt"};
-        File inputFile = new File(args[0]);
-        if (!inputFile.exists()) {
-            fail("Input File doesn't exist");
+        String[] args = {"NIS_sample_NotExist.txt", "alphabetizer_output.txt"};
+        try {
+            Alphabetizer.main(args);
+        } catch (Exception e) {
+            fail("Invalid input file argument is not handled properly in the code");
         }
-        //        Alphabetizer.main(args);
     }
 
     @Test
     public void testMainTwoValidArgs() {
         System.out.println("main: passing two valid arguments");
         String[] args = {"NIS_sample.txt", "alphabetizer_output.txt"};
-        Alphabetizer.main(args);
+        try {
+            Alphabetizer.main(args);
+        } catch (Exception e) {
+            fail("Exception handled properly in the code");
+        }
     }
 
     /**
@@ -71,7 +79,6 @@ public class AlphabetizerTest {
         String expResult = "";
         String result = Alphabetizer.alphabetizer(input);
         assertEquals(expResult, result);
-        fail("Output is incorrect");
     }
 
     @Test
@@ -81,7 +88,6 @@ public class AlphabetizerTest {
         String expResult = "aceghiiinrTV";
         String result = Alphabetizer.alphabetizer(input);
         assertEquals(expResult, result);
-        fail("Output is incorrect");
     }
 
     @Test
@@ -91,7 +97,6 @@ public class AlphabetizerTest {
         String expResult = "BcdeiilMn";
         String result = Alphabetizer.alphabetizer(input);
         assertEquals(expResult, result);
-        fail("Output is incorrect");
     }
 
     @Test
@@ -101,7 +106,6 @@ public class AlphabetizerTest {
         String expResult = "Vvv";
         String result = Alphabetizer.alphabetizer(input);
         assertEquals(expResult, result);
-        fail("Output is incorrect");
     }
 
     @Test
@@ -111,7 +115,6 @@ public class AlphabetizerTest {
         String expResult = "Vv";
         String result = Alphabetizer.alphabetizer(input);
         assertEquals(expResult, result);
-        fail("Output is incorrect");
     }
 
     @Test
@@ -121,7 +124,6 @@ public class AlphabetizerTest {
         String expResult = "Vv";
         String result = Alphabetizer.alphabetizer(input);
         assertEquals(expResult, result);
-        fail("Output is incorrect");
     }
 
     /**
@@ -136,7 +138,6 @@ public class AlphabetizerTest {
         expResult.put('T', 1);
         HashMap<Character, Integer> result = Alphabetizer.uppercaseTracker(input);
         assertEquals(expResult, result);
-        fail("UpperCase Tracker content is incorrect. The keys are case-sensitive and the values should indicate the occurences of each key");
     }
 
     /**
@@ -150,8 +151,6 @@ public class AlphabetizerTest {
         String expResult = "";
         String result = Alphabetizer.retrieveOriginal(input, tracker);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     @Test
@@ -164,8 +163,5 @@ public class AlphabetizerTest {
         String expResult = "aceghiiinrTV";
         String result = Alphabetizer.retrieveOriginal(sortedInput, tracker);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("Orginial letter cases couldn't be retrieved");
     }
-
 }
