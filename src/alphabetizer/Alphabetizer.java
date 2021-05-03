@@ -111,7 +111,7 @@ public class Alphabetizer {
 
     /**
      *
-     * @param input String to iterate over its characters to decide whether they
+     * @param input sorted String, but all in lowercase, to iterate over its characters to decide whether they
      * were originally uppercase or not by checking the HashMap passed as a
      * parameter
      * @param tracker

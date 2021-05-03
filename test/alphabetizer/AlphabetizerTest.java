@@ -131,8 +131,9 @@ public class AlphabetizerTest {
     public void testUppercaseTracker() {
         System.out.println("uppercaseTracker");
         String input = "VirginiaTech";
-        HashMap<Character, Integer> expResult = new HashMap<Character, Integer>();
+        HashMap<Character, Integer> expResult = new HashMap<>();
         expResult.put('V', 1);
+        expResult.put('T', 1);
         HashMap<Character, Integer> result = Alphabetizer.uppercaseTracker(input);
         assertEquals(expResult, result);
         fail("UpperCase Tracker content is incorrect. The keys are case-sensitive and the values should indicate the occurences of each key");
@@ -145,7 +146,7 @@ public class AlphabetizerTest {
     public void testRetrieveOriginalEmpty() {
         System.out.println("retrieveOriginal");
         String input = "";
-        HashMap<Character, Integer> tracker = new HashMap<Character, Integer>();
+        HashMap<Character, Integer> tracker = new HashMap<>();
         String expResult = "";
         String result = Alphabetizer.retrieveOriginal(input, tracker);
         assertEquals(expResult, result);
@@ -156,15 +157,15 @@ public class AlphabetizerTest {
     @Test
     public void testRetrieveOriginal() {
         System.out.println("retrieveOriginal");
-        String input = "aceghiiinrtv";
-        HashMap<Character, Integer> tracker = new HashMap<Character, Integer>();
-        tracker.put('V',1);
+        String sortedInput = "aceghiiinrtv"; //initial input is "VirginiaTech"
+        HashMap<Character, Integer> tracker = new HashMap<>();
+        tracker.put('V', 1);
         tracker.put('T', 1);
         String expResult = "aceghiiinrTV";
-        String result = Alphabetizer.retrieveOriginal(input, tracker);
+        String result = Alphabetizer.retrieveOriginal(sortedInput, tracker);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("Orginia letter cases couldn't be retrieved");
+        fail("Orginial letter cases couldn't be retrieved");
     }
 
 }
