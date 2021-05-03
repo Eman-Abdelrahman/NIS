@@ -26,8 +26,8 @@ public class Alphabetizer {
     public static void main(String[] args) {
         String output;
         if (args.length < 2){
-            System.err.println("Usage: java alphabetizer.Alphabetizer <inputFile.txt> <outputFile.txt>");
-            System.exit(0);
+            System.out.println("Usage: java alphabetizer.Alphabetizer <inputFile.txt> <outputFile.txt>");
+//            System.exit(0);
         }
         
         String inputFileName = args[0];
@@ -47,7 +47,7 @@ public class Alphabetizer {
                     buffWriter.newLine();
                 } //end of try block that writes to the output file
                 catch (IOException e) {
-                    System.err.format("IOException while writing the output: %s%n", e);
+                    System.out.format("IOException while writing the output: %s%n");
                 }//end of catch block
 
                 line = buffReader.readLine();
@@ -56,8 +56,8 @@ public class Alphabetizer {
             buffWriter.close();
         } //end of try block that reads from the file
         catch (IOException e) {
-            e.printStackTrace();
-            System.err.format("IOException while reading the input: %s%n", e);
+//            e.printStackTrace();
+            System.out.format("IOException while reading the input: %s%n");
         }// end of catch block
     }// end of main method
 

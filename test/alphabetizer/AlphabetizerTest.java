@@ -22,54 +22,6 @@ import static org.junit.Assert.*;
 public class AlphabetizerTest {
 
     /**
-     * Test of main method, of class Alphabetizer.
-     */
-    @Test
-    public void testMainNullArgs() {
-        System.out.println("main: passing no arguments. It is captured by printing usage to the user & exiting");
-        String[] args = null;
-        try {
-            Alphabetizer.main(args);
-        } catch (Exception e) {
-            fail("Null arguments not handled properly in the code");
-        }
-    }
-
-    @Test
-    public void testMainMissingArg() {
-        System.out.println("main: passing only one argument");
-        String[] args = {"NIS_sample.txt"};
-        try {
-            Alphabetizer.main(args);
-        } catch (Exception e) {
-            fail("Missing argument is not handled properly in the code");
-
-        }
-    }
-
-    @Test
-    public void testMainTwoArgsInvalidInputFile() {
-        System.out.println("main: passing two arguments but input file doesn't exist");
-        String[] args = {"NIS_sample_NotExist.txt", "alphabetizer_output.txt"};
-        try {
-            Alphabetizer.main(args);
-        } catch (Exception e) {
-            fail("Invalid input file argument is not handled properly in the code");
-        }
-    }
-
-    @Test
-    public void testMainTwoValidArgs() {
-        System.out.println("main: passing two valid arguments");
-        String[] args = {"NIS_sample.txt", "alphabetizer_output.txt"};
-        try {
-            Alphabetizer.main(args);
-        } catch (Exception e) {
-            fail("Exception handled properly in the code");
-        }
-    }
-
-    /**
      * Test of alphabetizer method, of class Alphabetizer.
      */
     @Test
