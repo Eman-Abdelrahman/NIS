@@ -2,7 +2,7 @@
 ## Usage guide
 ### From the command Line:
 - [ ] Navigate to the src folder:
-    - [ ] To build: javac alphabetizer/alphabetizer.java 
+    - [ ] To build: javac alphabetizer/Alphabetizer.java 
     - [ ] To run: java alphabetizer.Alphabetizer <inputFileName.txt> <outputFileName.txt>
     
 ### Capitalization does not matter for a character, but characters are output in the same form that they were input.  e.g. P counts the same as p, but the output as P.  Non-alphabetic characters are ignored and are not included in the output string.
